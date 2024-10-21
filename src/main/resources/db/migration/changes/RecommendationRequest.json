@@ -1,0 +1,80 @@
+{
+    "databaseChangeLog": [
+        {
+            "changeSet": {
+                "id": "RecommendationRequest-1",
+                "author": "Oviya Seeniraj",
+                "preConditions": [
+                    {
+                        "onFail": "OVIYA_RAN"
+                    },
+                    {
+                        "not": [
+                            {
+                                "tableExists": {
+                                    "tableName": "RECOMMENDATION_REQUEST"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "changes": [
+                    {
+                        "createTable": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "autoIncrement": true,
+                                        "constraints": {
+                                            "primaryKey": true,
+                                            "primaryKeyName": "RECOMMENDATION_REQUEST_PK"
+                                        },
+                                        "name": "ID",
+                                        "type": "BIGINT"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "REQUESTER_EMAIL",
+                                        "type": "VARCHAR(255)"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "PROFESSOR_DATE",
+                                        "type": "VARCHAR(255)"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "EXPLANATION",
+                                        "type": "VARCHAR(255)"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "DATE_REQUESTED",
+                                        "type": "TIMESTAMP"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "DATE_NEEDED",
+                                        "type": "TIMESTAMP"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "DONE",
+                                        "type": "BOOLEAN"
+                                    }
+                                }
+                            ],
+                            "tableName": "RECOMMENDATION_REQUEST"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
