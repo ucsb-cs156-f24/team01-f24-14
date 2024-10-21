@@ -30,6 +30,6 @@ public class RecommendationRequest {
   private String professorEmail;
   private String explanation;
   private LocalDateTime dateRequested;
-  private LocalDateTime hasDiningCam;
+  private LocalDateTime dateNeeded;
   private boolean done;
 }
