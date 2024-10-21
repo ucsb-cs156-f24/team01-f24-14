@@ -48,7 +48,7 @@ public class ArticlesController extends ApiController {
     @Operation(summary= "List all articles")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/all")
-    public Iterable<Articles> allUCSBDates() {
+    public Iterable<Articles> allArticles() {
         Iterable<Articles> articles = articlesRepository.findAll();
         return articles;
     }
@@ -106,5 +106,32 @@ public class ArticlesController extends ApiController {
         Articles savedArticle = articlesRepository.save(article);
 
         return savedArticle;
+    }
+    /**
+     * Update a single article
+     * 
+     * @param id       id of the date to update
+     * @param incoming the new article
+     * @return the updated article object
+     */
+    @Operation(summary= "Update a single article")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("")
+    public Articles updateArticle(
+            @Parameter(name="id") @RequestParam Long id,
+            @RequestBody @Valid Articles incoming) {
+
+        Articles article = articlesRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(Articles.class, id));
+
+        article.setTitle(incoming.getTitle());
+        article.setUrl(incoming.getUrl());
+        article.setExplanation(incoming.getExplanation());
+        article.setEmail(incoming.getEmail());
+        article.setDateAdded(incoming.getDateAdded());
+
+        articlesRepository.save(article);
+
+        return article;
     }
 }
