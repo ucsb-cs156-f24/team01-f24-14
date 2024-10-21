@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team01-f24-14
 owner: ucsb-cs156-f24
 repo_name: team01-f24-14
-pull_requests: []
+pull_requests: [{"author":{"id":"MDQ6VXNlcjU0MzA1ODEy","is_bot":false,"login":"Va1a","name":""},"headRefName":"vala","number":43,"title":"Create articles database (Closes #38)","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/43"}]
