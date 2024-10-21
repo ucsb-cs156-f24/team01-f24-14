@@ -3,10 +3,10 @@
         {
             "changeSet": {
                 "id": "RecommendationRequest-1",
-                "author": "Oviya Seeniraj",
+                "author": "OviyaS",
                 "preConditions": [
                     {
-                        "onFail": "OVIYA_RAN"
+                        "onFail": "MARK_RAN"
                     },
                     {
                         "not": [
