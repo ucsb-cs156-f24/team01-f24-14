@@ -2,7 +2,7 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "Articles-1",
+          "id": "Articles-3",
           "author": "ValaB",
           "preConditions": [
             {
@@ -59,7 +59,7 @@
                   },
                   {
                     "column": {
-                      "name": "DATEADDED",
+                      "name": "DATE_ADDED",
                       "type": "TIMESTAMP"
                     }
                   }
