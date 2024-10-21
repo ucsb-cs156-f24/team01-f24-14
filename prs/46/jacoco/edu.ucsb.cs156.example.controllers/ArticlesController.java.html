@@ -134,5 +134,23 @@ import java.time.LocalDateTime;
 
 <span class="fc" id="L135">        return article;</span>
     }
+
+    /**
+     * Delete an article
+     * 
+     * @param id the id of the article to delete
+     * @return a message indicating the article was deleted
+     */
+    @Operation(summary= &quot;Delete an article&quot;)
+    @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
+    @DeleteMapping(&quot;&quot;)
+    public Object deleteArticle(
+            @Parameter(name=&quot;id&quot;) @RequestParam Long id) {
+<span class="fc" id="L149">        Articles article = articlesRepository.findById(id)</span>
+<span class="fc" id="L150">                .orElseThrow(() -&gt; new EntityNotFoundException(Articles.class, id));</span>
+
+<span class="fc" id="L152">        articlesRepository.delete(article);</span>
+<span class="fc" id="L153">        return genericMessage(&quot;Articles with id %s deleted&quot;.formatted(id));</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
