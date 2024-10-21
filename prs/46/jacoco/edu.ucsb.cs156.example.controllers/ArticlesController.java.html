@@ -48,7 +48,7 @@ import java.time.LocalDateTime;
     @Operation(summary= &quot;List all articles&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_USER')&quot;)
     @GetMapping(&quot;/all&quot;)
-    public Iterable&lt;Articles&gt; allUCSBDates() {
+    public Iterable&lt;Articles&gt; allArticles() {
 <span class="fc" id="L52">        Iterable&lt;Articles&gt; articles = articlesRepository.findAll();</span>
 <span class="fc" id="L53">        return articles;</span>
     }
@@ -106,6 +106,33 @@ import java.time.LocalDateTime;
 <span class="fc" id="L106">        Articles savedArticle = articlesRepository.save(article);</span>
 
 <span class="fc" id="L108">        return savedArticle;</span>
+    }
+    /**
+     * Update a single article
+     * 
+     * @param id       id of the date to update
+     * @param incoming the new article
+     * @return the updated article object
+     */
+    @Operation(summary= &quot;Update a single article&quot;)
+    @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
+    @PutMapping(&quot;&quot;)
+    public Articles updateArticle(
+            @Parameter(name=&quot;id&quot;) @RequestParam Long id,
+            @RequestBody @Valid Articles incoming) {
+
+<span class="fc" id="L124">        Articles article = articlesRepository.findById(id)</span>
+<span class="fc" id="L125">                .orElseThrow(() -&gt; new EntityNotFoundException(Articles.class, id));</span>
+
+<span class="fc" id="L127">        article.setTitle(incoming.getTitle());</span>
+<span class="fc" id="L128">        article.setUrl(incoming.getUrl());</span>
+<span class="fc" id="L129">        article.setExplanation(incoming.getExplanation());</span>
+<span class="fc" id="L130">        article.setEmail(incoming.getEmail());</span>
+<span class="fc" id="L131">        article.setDateAdded(incoming.getDateAdded());</span>
+
+<span class="fc" id="L133">        articlesRepository.save(article);</span>
+
+<span class="fc" id="L135">        return article;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
