@@ -2,7 +2,7 @@
     "databaseChangeLog": [
         {
             "changeSet": {
-                "id": "RecommendationRequest-1",
+                "id": "RecommendationRequest-2",
                 "author": "OviyaS",
                 "preConditions": [
                     {
@@ -12,7 +12,7 @@
                         "not": [
                             {
                                 "tableExists": {
-                                    "tableName": "RECOMMENDATION_REQUEST"
+                                    "tableName": "RECOMMENDATIONREQUESTS"
                                 }
                             }
                         ]
@@ -27,7 +27,7 @@
                                         "autoIncrement": true,
                                         "constraints": {
                                             "primaryKey": true,
-                                            "primaryKeyName": "RECOMMENDATION_REQUEST_PK"
+                                            "primaryKeyName": "RECOMMENDATIONREQUESTS_PK"
                                         },
                                         "name": "ID",
                                         "type": "BIGINT"
@@ -41,7 +41,7 @@
                                 },
                                 {
                                     "column": {
-                                        "name": "PROFESSOR_DATE",
+                                        "name": "PROFESSOR_EMAIL",
                                         "type": "VARCHAR(255)"
                                     }
                                 },
@@ -70,7 +70,7 @@
                                     }
                                 }
                             ],
-                            "tableName": "RECOMMENDATION_REQUEST"
+                            "tableName": "RECOMMENDATIONREQUESTS"
                         }
                     }
                 ]
