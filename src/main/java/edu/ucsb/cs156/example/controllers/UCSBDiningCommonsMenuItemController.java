@@ -118,9 +118,7 @@ public class UCSBDiningCommonsMenuItemController extends ApiController {
     /**
      * Update a single ucsb dining commons menu item
      * 
-     * @param diningCommonsCode     the dining commons code
-     * @param name                  the name of the menu item
-     * @param station               the station of the menu item
+     * @param id     the dining commons code
      * @return                      the updated ucsbdiningcommonsmenuitem object
      */
     @Operation(summary= "Update a single ucsb dining commons menu item")
