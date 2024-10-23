@@ -1,5 +1,7 @@
 package edu.ucsb.cs156.example.entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,12 +19,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "restaurants")
-public class Restaurant {
+@Entity(name = "HelpRequests")
+public class HelpRequests {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
-
-  private String name;
-  private String description;
+  private String requesterEmail;
+  private String teamId;
+  private String tableOrBreakoutRoom;
+  private LocalDateTime requestTime;
+  private String explanation;
+  private boolean solved;
 }
