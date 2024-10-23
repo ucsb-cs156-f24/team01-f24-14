@@ -1,4 +1,4 @@
-package main.java.edu.ucsb.cs156.example.entities;
+package edu.ucsb.cs156.example.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 
 /** 
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
  */
 
 @Data
+@Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -24,6 +26,8 @@ import lombok.NoArgsConstructor;
 public class UCSBOrganization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     private String orgCode;
     private String orgTranslationShort;
     private String orgTranslation;
