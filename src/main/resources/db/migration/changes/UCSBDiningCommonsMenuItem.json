@@ -2,8 +2,8 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "UCSBDates-2",
-          "author": "MattP",
+          "id": "UCSBDiningCommonsMenuItem-1",
+          "author": "AmanP",
           "preConditions": [
             {
               "onFail": "MARK_RAN"
@@ -12,7 +12,7 @@
               "not": [
                 {
                   "tableExists": {
-                    "tableName": "UCSBDATES"
+                    "tableName": "UCSBDININGCOMMONSMENUITEM"
                   }
                 }
               ]
@@ -27,7 +27,7 @@
                       "autoIncrement": true,
                       "constraints": {
                         "primaryKey": true,
-                        "primaryKeyName": "CONSTRAINT_5"
+                        "primaryKeyName": "UCSBDININGCOMMONSMENUITEM_PK"
                       },
                       "name": "ID",
                       "type": "BIGINT"
@@ -35,8 +35,8 @@
                   },
                   {
                     "column": {
-                      "name": "LOCAL_DATE_TIME",
-                      "type": "TIMESTAMP"
+                      "name": "DINING_COMMONS_CODE",
+                      "type": "VARCHAR(255)"
                     }
                   },
                   {
@@ -47,12 +47,12 @@
                   },
                   {
                     "column": {
-                      "name": "QUARTERYYYYQ",
+                      "name": "STATION",
                       "type": "VARCHAR(255)"
                     }
                   }
                 ],
-                "tableName": "UCSBDATES"
+                "tableName": "UCSBDININGCOMMONSMENUITEM"
               }
             }
           ]

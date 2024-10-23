@@ -2,8 +2,8 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "UCSBDates-2",
-          "author": "MattP",
+          "id": "MENUITEMREVIEWS-2",
+          "author": "RionaP",
           "preConditions": [
             {
               "onFail": "MARK_RAN"
@@ -12,7 +12,7 @@
               "not": [
                 {
                   "tableExists": {
-                    "tableName": "UCSBDATES"
+                    "tableName": "MENUITEMREVIEWS"
                   }
                 }
               ]
@@ -27,7 +27,7 @@
                       "autoIncrement": true,
                       "constraints": {
                         "primaryKey": true,
-                        "primaryKeyName": "CONSTRAINT_5"
+                        "primaryKeyName": "MENUITEMREVIEWS_PK1"
                       },
                       "name": "ID",
                       "type": "BIGINT"
@@ -35,24 +35,30 @@
                   },
                   {
                     "column": {
-                      "name": "LOCAL_DATE_TIME",
+                      "name": "REVIEWER_EMAIL",
+                      "type": "VARCHAR(255)"
+                    }
+                  },
+                  {
+                    "column": {
+                      "name": "STARS",
+                      "type": "INT"
+                    }
+                  },
+                  {
+                    "column": {
+                      "name": "DATE_REVIEWED",
                       "type": "TIMESTAMP"
                     }
                   },
                   {
                     "column": {
-                      "name": "NAME",
-                      "type": "VARCHAR(255)"
-                    }
-                  },
-                  {
-                    "column": {
-                      "name": "QUARTERYYYYQ",
+                      "name": "COMMENTS",
                       "type": "VARCHAR(255)"
                     }
                   }
                 ],
-                "tableName": "UCSBDATES"
+                "tableName": "MENUITEMREVIEWS"
               }
             }
           ]
