@@ -44,9 +44,9 @@ public class RecommendationRequestsController extends ApiController{
     RecommendationRequestRepository recommendationRequestRepository;
 
     /**
-     * List all UCSB dates
+     * List all Recommendation requests
      * 
-     * @return an iterable of UCSBDate
+     * @return an iterable of RecommendationRequest
      */
     @Operation(summary= "List all recommendation requests")
     @PreAuthorize("hasRole('ROLE_USER')")

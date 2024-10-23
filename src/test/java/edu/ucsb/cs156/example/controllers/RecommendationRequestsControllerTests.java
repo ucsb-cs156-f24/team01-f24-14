@@ -192,14 +192,14 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
                             .explanation("test1")
                             .dateRequested(ldt1)
                             .dateNeeded(ldt1)
-                            .done(false)
+                            .done(true)
                             .build();
 
             when(recommendationRequestRepository.save(eq(recommendationRequest1))).thenReturn(recommendationRequest1);
 
             // act
            MvcResult response = mockMvc.perform(
-                            post("/api/recommendationrequests/post?requesterEmail=student1@ucsb.edu&professorEmail=prof1@ucsb.edu&explanation=test1&dateRequested=2022-01-03T00:00:00&dateNeeded=2022-01-03T00:00:00&done="+recommendationRequest1.getDone())
+                            post("/api/recommendationrequests/post?requesterEmail=student1@ucsb.edu&professorEmail=prof1@ucsb.edu&explanation=test1&dateRequested=2022-01-03T00:00:00&dateNeeded=2022-01-03T00:00:00&done=true")
                                             .with(csrf()))
                             .andExpect(status().isOk()).andReturn();
 
@@ -286,7 +286,7 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
                             .explanation("test2")
                             .dateRequested(ldt2)
                             .dateNeeded(ldt2)
-                            .done(false)
+                            .done(true)
                             .build();
 
             String requestBody = mapper.writeValueAsString(recommendationRequestEdited);
