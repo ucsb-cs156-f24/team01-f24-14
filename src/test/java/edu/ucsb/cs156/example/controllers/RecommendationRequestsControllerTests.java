@@ -83,7 +83,7 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
         }
     
     // // Tests with mocks for database actions
-        /*
+        
     @WithMockUser(roles = { "USER" })
     @Test
     public void test_that_logged_in_user_can_get_by_id_when_the_id_exists() throws Exception {
@@ -134,7 +134,7 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
             assertEquals("EntityNotFoundException", json.get("type"));
             assertEquals("RecommendationRequest with id 7 not found", json.get("message"));
     }
-        */
+        
     @WithMockUser(roles = { "USER" })
     @Test
     public void logged_in_user_can_get_all_recommendationrequests() throws Exception {
@@ -198,8 +198,8 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
             when(recommendationRequestRepository.save(eq(recommendationRequest1))).thenReturn(recommendationRequest1);
 
             // act
-            MvcResult response = mockMvc.perform(
-                            post("/api/recommendationrequests/post?requesterEmail=student1@ucsb.edu&professorEmail=prof1@ucsb.edu&explanation=test1&dateRequested=2022-01-03T00:00:00&dateNeeded=2022-01-03T00:00:00&done=false")
+           MvcResult response = mockMvc.perform(
+                            post("/api/recommendationrequests/post?requesterEmail=student1@ucsb.edu&professorEmail=prof1@ucsb.edu&explanation=test1&dateRequested=2022-01-03T00:00:00&dateNeeded=2022-01-03T00:00:00&done="+recommendationRequest1.getDone())
                                             .with(csrf()))
                             .andExpect(status().isOk()).andReturn();
 
@@ -210,7 +210,7 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
             assertEquals(expectedJson, responseString);
     }
 
-    /*
+    
     @WithMockUser(roles = { "ADMIN", "USER" })
     @Test
     public void admin_can_delete_a_recommendationrequest() throws Exception {
@@ -344,5 +344,5 @@ public class RecommendationRequestsControllerTests extends ControllerTestCase {
             assertEquals("RecommendationRequest with id 67 not found", json.get("message"));
     
     }
-            */
+            
 }
