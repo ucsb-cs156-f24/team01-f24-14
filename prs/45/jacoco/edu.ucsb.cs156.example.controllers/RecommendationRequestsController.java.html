@@ -44,9 +44,9 @@ import java.time.LocalDateTime;
     RecommendationRequestRepository recommendationRequestRepository;
 
     /**
-     * List all UCSB dates
+     * List all Recommendation requests
      * 
-     * @return an iterable of UCSBDate
+     * @return an iterable of RecommendationRequest
      */
     @Operation(summary= &quot;List all recommendation requests&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_USER')&quot;)
