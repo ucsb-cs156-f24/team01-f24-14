@@ -1,6 +1,6 @@
-package edu.ucsb.cs156.example.repositories;
+package main.java.edu.ucsb.cs156.example.repositories;
 
-import edu.ucsb.cs156.example.entities.UCSBDiningCommons;
+import edu.ucsb.cs156.example.entities.UCSBOrganization;
 
 import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.data.repository.CrudRepository;
