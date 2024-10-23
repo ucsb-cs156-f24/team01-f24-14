@@ -35,6 +35,12 @@
                   },
                   {
                     "column": {
+                      "name": "ITEM_ID",
+                      "type": "BIGINT"
+                    }
+                  },
+                  {
+                    "column": {
                       "name": "REVIEWER_EMAIL",
                       "type": "VARCHAR(255)"
                     }
