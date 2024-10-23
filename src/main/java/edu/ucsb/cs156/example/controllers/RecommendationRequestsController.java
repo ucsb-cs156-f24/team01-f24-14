@@ -55,6 +55,7 @@ public class RecommendationRequestsController extends ApiController{
         return recommendationRequests;
     }
 
+
     /**
      * Create a new recommendation request
      * 
