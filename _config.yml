@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team01-f24-14
 owner: ucsb-cs156-f24
 repo_name: team01-f24-14
-pull_requests: [{"author":{"id":"MDQ6VXNlcjU0MzA1ODEy","is_bot":false,"login":"Va1a","name":""},"headRefName":"vala","number":46,"title":"Create ArticlesController class with GET & POST & PUT & DELETE functionality","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/46"}]
+pull_requests: [{"author":{"id":"U_kgDOBfiN4g","is_bot":false,"login":"amanpdesai","name":"Aman Desai"},"headRefName":"Aman","number":47,"title":"Completed Issue 1 for UCSBDiningCommonsMenuItem","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/47"},{"author":{"id":"MDQ6VXNlcjU0MzA1ODEy","is_bot":false,"login":"Va1a","name":""},"headRefName":"vala","number":46,"title":"Create ArticlesController class with GET & POST & PUT & DELETE functionality","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/46"}]
