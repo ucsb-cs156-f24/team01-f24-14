@@ -23,13 +23,12 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 @Builder
 @Entity(name = "ucsborganization")
-public class UCSBOrganization {
+public class UCSBOrganization{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
 
     private String orgCode;
     private String orgTranslationShort;
     private String orgTranslation;
     private boolean inactive;
 }
+
