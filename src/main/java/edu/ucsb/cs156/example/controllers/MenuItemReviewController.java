@@ -1,6 +1,7 @@
 package edu.ucsb.cs156.example.controllers;
 
 import edu.ucsb.cs156.example.entities.MenuItemReviews;
+import edu.ucsb.cs156.example.entities.UCSBDate;
 import edu.ucsb.cs156.example.entities.MenuItemReviews;
 import edu.ucsb.cs156.example.entities.MenuItemReviews;
 import edu.ucsb.cs156.example.errors.EntityNotFoundException;
@@ -73,24 +74,24 @@ public class MenuItemReviewController extends ApiController {
     }
 
     /**
-     * Create a new review
+     * Create a new date
      * 
      * @param itemId  
      * @param reviewerEmail          
      * @param stars
      * @param dateReviewed
      * @param comments
-     * @return the saved menu item review
+     * @return the created menu item review
      */
-    @Operation(summary= "Create a new review")
+    @Operation(summary= "Create a new menu item review")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
-    public MenuItemReviews postMenuItemReviews(
+    public MenuItemReviews postMenuItemReview (
             @Parameter(name="itemId") @RequestParam long itemId,
             @Parameter(name="reviewerEmail") @RequestParam String reviewerEmail,
             @Parameter(name="stars") @RequestParam int stars,
-            @Parameter(name="comments") @RequestParam String comments,
-            @Parameter(name="dateReviewed") @RequestParam("dateReviewed") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateReviewed)
+            @Parameter(name="dateReviewed", description="date (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)") @RequestParam("dateReviewed") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateReviewed,
+            @Parameter(name="comments") @RequestParam String comments)
             throws JsonProcessingException {
 
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -98,17 +99,15 @@ public class MenuItemReviewController extends ApiController {
 
         log.info("dateReviewed={}", dateReviewed);
 
-        MenuItemReviews review = new MenuItemReviews();
-        review.setItemId(itemId);
-        review.setReviewerEmail(reviewerEmail);
-        review.setStars(stars);
-        review.setComments(comments);
-        review.setDateReviewed(dateReviewed);
+        MenuItemReviews menuItemReviews = new MenuItemReviews();
+        menuItemReviews.setItemId(itemId);
+        menuItemReviews.setReviewerEmail(reviewerEmail);
+        menuItemReviews.setStars(stars);
+        menuItemReviews.setDateReviewed(dateReviewed);
+        menuItemReviews.setComments(comments);
 
-
-        MenuItemReviews savedReview = menuItemReviewsRepository.save(review);
-
-        return savedReview;
+        MenuItemReviews savedMenuItemReviews = menuItemReviewsRepository.save(menuItemReviews);
+        return savedMenuItemReviews;
     }
 
     /**
