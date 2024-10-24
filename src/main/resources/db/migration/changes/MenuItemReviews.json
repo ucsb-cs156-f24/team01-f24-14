@@ -2,7 +2,7 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "MENUITEMREVIEWS-3",
+          "id": "MENUITEMREVIEWS-6",
           "author": "RionaP",
           "preConditions": [
             {

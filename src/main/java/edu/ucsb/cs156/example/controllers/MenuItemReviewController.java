@@ -2,6 +2,7 @@ package edu.ucsb.cs156.example.controllers;
 
 import edu.ucsb.cs156.example.entities.MenuItemReviews;
 import edu.ucsb.cs156.example.entities.MenuItemReviews;
+import edu.ucsb.cs156.example.entities.MenuItemReviews;
 import edu.ucsb.cs156.example.errors.EntityNotFoundException;
 import edu.ucsb.cs156.example.repositories.MenuItemReviewsRepository;
 
@@ -110,4 +111,57 @@ public class MenuItemReviewController extends ApiController {
         return savedReview;
     }
 
+    /**
+     * Delete a MenuItemReview
+     * 
+     * @param itemId  
+     * @param reviewerEmail          
+     * @param stars
+     * @param dateReviewed
+     * @param comments
+     * @return the saved menu item review
+     */
+    @Operation(summary= "Delete a MenuItemReviewController")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("")
+    public Object deleteMenuItemReview(
+            @Parameter(name="id") @RequestParam Long id) {
+        MenuItemReviews menuItemReviews = menuItemReviewsRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(MenuItemReviews.class, id));
+
+                menuItemReviewsRepository.delete(menuItemReviews);
+        return genericMessage("MenuItemReviews with id %s deleted".formatted(id));
+    }
+
+     /**
+     * Update MenuItemReview
+     * 
+     * @param itemId  
+     * @param reviewerEmail          
+     * @param stars
+     * @param dateReviewed
+     * @param comments
+     * @return the updated menu item review
+     */
+    @Operation(summary= "Update a single date")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("")
+    public MenuItemReviews updateMenuItemReviews(
+            @Parameter(name="id") @RequestParam Long id,
+            @RequestBody @Valid MenuItemReviews incoming) {
+
+        MenuItemReviews menuItemReviews = menuItemReviewsRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(MenuItemReviews.class, id));
+
+
+        menuItemReviews.setItemId(incoming.getItemId());
+        menuItemReviews.setReviewerEmail(incoming.getReviewerEmail());
+        menuItemReviews.setStars(incoming.getStars());
+        menuItemReviews.setComments(incoming.getComments());
+        menuItemReviews.setDateReviewed(incoming.getDateReviewed());
+
+        menuItemReviewsRepository.save(menuItemReviews);
+
+        return menuItemReviews;
+    }
 }
