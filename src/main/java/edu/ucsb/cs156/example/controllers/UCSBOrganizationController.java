@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 
 /**
- * This is a REST controller for UCSBDiningCommons
+ * This is a REST controller for UCSBOrganization
  */
 
 @Tag(name = "UCSBOrganization")
@@ -38,8 +38,8 @@ public class UCSBOrganizationController extends ApiController{
     UCSBOrganizationRepository ucsbOrganizationRepository;
 
     /**
-     * THis method returns a list of all ucsbdiningcommons.
-     * @return a list of all ucsbdiningcommons
+     * THis method returns a list of all ucsbdorganization.
+     * @return a list of all ucsborganizations
      */
     @Operation(summary= "List all ucsb organizations")
     @PreAuthorize("hasRole('ROLE_USER')")
@@ -50,7 +50,23 @@ public class UCSBOrganizationController extends ApiController{
     }
 
     /**
-     * This method creates a new diningcommons. Accessible only to users with the role "ROLE_ADMIN".
+     * This method returns a single organization.
+     * @param orgCode code of the organization
+     * @return a single organization
+     */
+    @Operation(summary= "Get a single organization")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @GetMapping("")
+    public UCSBOrganization getById(
+            @Parameter(name="orgCode") @RequestParam String orgCode) {
+        UCSBOrganization organization = ucsbOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
+
+        return organization;
+    }
+
+    /**
+     * This method creates a new organization. Accessible only to users with the role "ROLE_ADMIN".
      * @param orgCode orgCode of the organization
      * @param orgTranslationShort the shortened name of the organization
      * @param orgTranslation full name of the organization
@@ -77,6 +93,32 @@ public class UCSBOrganizationController extends ApiController{
         UCSBOrganization savedOrganization = ucsbOrganizationRepository.save(organization);
 
         return savedOrganization;
-        
+    }
+
+    /**
+     * Update a single organization. Accessible only to users with the role "ROLE_ADMIN".
+     * @param orgCode code of the organization
+     * @param incoming the new organization contents
+     * @return the updated organization object
+     */
+    @Operation(summary= "Update a single organization")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("")
+    public UCSBOrganization updateOrganization(
+            @Parameter(name="orgCode") @RequestParam String orgCode,
+            @RequestBody @Valid UCSBOrganization incoming) {
+
+        UCSBOrganization organization = ucsbOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
+
+
+        organization.setOrgCode(incoming.getOrgCode());
+        organization.setOrgTranslationShort(incoming.getOrgTranslationShort());
+        organization.setOrgTranslation(incoming.getOrgTranslation());
+        organization.setInactive(incoming.getInactive());
+
+        ucsbOrganizationRepository.save(organization);
+
+        return organization;
     }
 }
