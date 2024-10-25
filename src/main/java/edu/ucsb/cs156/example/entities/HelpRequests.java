@@ -19,10 +19,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "HelpRequests")
+@Entity(name = "helprequests")
 public class HelpRequests {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
   private String requesterEmail;
   private String teamId;
   private String tableOrBreakoutRoom;
