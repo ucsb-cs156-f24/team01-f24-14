@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * The RecommendationRequestRepository is a repository for RecommendationRequest entities
  */
+@Repository
 public interface RecommendationRequestRepository extends CrudRepository<RecommendationRequest, Long> {
     
 }

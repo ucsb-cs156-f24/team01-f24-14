@@ -2,7 +2,7 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "MENUITEMREVIEWS-2",
+          "id": "MENUITEMREVIEWS-7",
           "author": "RionaP",
           "preConditions": [
             {
@@ -30,6 +30,12 @@
                         "primaryKeyName": "MENUITEMREVIEWS_PK1"
                       },
                       "name": "ID",
+                      "type": "BIGINT"
+                    }
+                  },
+                  {
+                    "column": {
+                      "name": "ITEM_ID",
                       "type": "BIGINT"
                     }
                   },
