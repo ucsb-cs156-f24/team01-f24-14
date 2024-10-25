@@ -110,11 +110,7 @@ public class MenuItemReviewController extends ApiController {
     /**
      * Delete a MenuItemReview
      * 
-     * @param itemId  
-     * @param reviewerEmail          
-     * @param stars
-     * @param dateReviewed
-     * @param comments
+     * @param id of the menu item review
      * @return the saved menu item review
      */
     @Operation(summary= "Delete a MenuItemReviewController")
@@ -132,11 +128,8 @@ public class MenuItemReviewController extends ApiController {
      /**
      * Update MenuItemReview
      * 
-     * @param itemId  
-     * @param reviewerEmail          
-     * @param stars
-     * @param dateReviewed
-     * @param comments
+     * @param id the id of the date to update
+     * @param incoming the menuitemreview to update
      * @return the updated menu item review
      */
     @Operation(summary= "Update a single date")
