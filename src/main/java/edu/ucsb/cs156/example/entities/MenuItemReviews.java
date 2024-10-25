@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 public class MenuItemReviews {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
   private long itemId;
   private String reviewerEmail;
   private int stars;

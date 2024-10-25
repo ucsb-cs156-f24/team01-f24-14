@@ -125,7 +125,7 @@ public class MenuItemReviewController extends ApiController {
         MenuItemReviews menuItemReviews = menuItemReviewsRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(MenuItemReviews.class, id));
 
-                menuItemReviewsRepository.delete(menuItemReviews);
+        menuItemReviewsRepository.delete(menuItemReviews);
         return genericMessage("MenuItemReviews with id %s deleted".formatted(id));
     }
 
