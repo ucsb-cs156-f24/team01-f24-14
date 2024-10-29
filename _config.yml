@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team01-f24-14
 owner: ucsb-cs156-f24
 repo_name: team01-f24-14
-pull_requests: [{"author":{"id":"U_kgDOB76BMA","is_bot":false,"login":"kev-yan","name":""},"headRefName":"kevin","number":55,"title":"Implemented all Controller methods","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/55"},{"author":{"id":"U_kgDOBtnv0w","is_bot":false,"login":"Refinnej04","name":""},"headRefName":"jennifer","number":54,"title":"PR2: Working on Create HelpRequestsController","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/54"}]
+pull_requests: [{"author":{"id":"U_kgDOB76BMA","is_bot":false,"login":"kev-yan","name":""},"headRefName":"kevin","number":56,"title":"final fixes to controller methods and tests","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/56"},{"author":{"id":"U_kgDOBtnv0w","is_bot":false,"login":"Refinnej04","name":""},"headRefName":"jennifer","number":54,"title":"PR2: Working on Create HelpRequestsController","url":"https://github.com/ucsb-cs156-f24/team01-f24-14/pull/54"}]
