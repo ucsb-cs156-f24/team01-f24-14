@@ -14,6 +14,7 @@ team01,edu.ucsb.cs156.example.controllers,ArticlesController,0,133,0,0,0,29,0,10
 team01,edu.ucsb.cs156.example.controllers,UserInfoController,0,6,0,0,0,2,0,2,0,2
 team01,edu.ucsb.cs156.example.controllers,UCSBDiningCommonsController,0,141,0,0,0,31,0,10,0,10
 team01,edu.ucsb.cs156.example.controllers,UCSBDiningCommonsMenuItemController,0,115,0,0,0,24,0,10,0,10
+team01,edu.ucsb.cs156.example.controllers,HelpRequestsController,0,138,0,0,0,29,0,10,0,10
 team01,edu.ucsb.cs156.example.controllers,SystemInfoController,0,7,0,0,0,2,0,2,0,2
 team01,edu.ucsb.cs156.example.controllers,UsersController,0,16,0,0,0,4,0,2,0,2
 team01,edu.ucsb.cs156.example.errors,EntityNotFoundException,0,17,0,0,0,3,0,1,0,1
