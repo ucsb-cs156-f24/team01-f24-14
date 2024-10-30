@@ -2,7 +2,7 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "HelpRequests-01",
+        "id": "HelpRequests-02",
         "author": "JenniferZ",
         "preConditions": [
           {
